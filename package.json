@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "babel app.js -d dist",
-    "dev": "nodemon --exec babel-node app.js"
+    "dev": "nodemon --exec babel-node app.js",
+    "start": "babel-node app.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/secalquin/nodejs-prisma-jwt#readme",
   "dependencies": {
     "@prisma/client": "^3.14.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "morgan": "^1.10.0",

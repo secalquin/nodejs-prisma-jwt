@@ -1,9 +1,8 @@
 import express from "express";
-import { HelloWorld } from "../controllers/userController";
+import { HelloWorld } from "../controllers/user/userController";
 
 const routes = express.Router();
 
 routes.use("/", HelloWorld);
-//routes.use("/tienda", tiendaRoutes);
 
 export default routes;

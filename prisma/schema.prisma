@@ -9,3 +9,63 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id     Int    @id @default(autoincrement())
+  email  String @unique
+  name   String
+  areaId Int
+  roleId Int
+
+  area  Area    @relation(fields: [areaId], references: [id])
+  role  Role    @relation(fields: [roleId], references: [id])
+  Token Token[]
+}
+
+model Token {
+  id     Int    @id @default(autoincrement())
+  token  String @unique
+  userId Int
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+model Area {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  User User[]
+}
+
+model Role {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+
+  User      User[]
+  Role_Menu Role_Menu[]
+}
+
+model Role_Menu {
+  id     Int @id @default(autoincrement())
+  roleId Int
+  menuId Int
+
+  role Role @relation(fields: [roleId], references: [id])
+  menu Menu @relation(fields: [menuId], references: [id])
+}
+
+model Menu {
+  id      Int       @id @default(autoincrement())
+  name    String    @unique
+  SubMenu SubMenu[]
+
+  Role_Menu Role_Menu[]
+}
+
+model SubMenu {
+  id     Int    @id @default(autoincrement())
+  name   String @unique
+  menuId Int
+
+  menu Menu @relation(fields: [menuId], references: [id])
+}

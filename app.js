@@ -2,8 +2,10 @@ import express from "express";
 import morgan from "morgan";
 import responseTime from "response-time";
 import routes from "./src/config/routes";
+import cors from "cors";
 
 import "dotenv/config";
+import corsConfig from "./src/config/cors";
 
 const app = express();
 
@@ -15,8 +17,9 @@ app.use(express.json()); //FORMAT JSON AUTO
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan("tiny"));
 app.use(responseTime());
+app.use(cors(corsConfig));
 
-//Route
+//Routes
 app.use("/api/v1", routes);
 
 // Starting the server
