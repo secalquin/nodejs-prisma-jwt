@@ -1,0 +1,36 @@
+{
+  "name": "nodejs-prisma-jwt",
+  "version": "1.0.0",
+  "description": "nodejs-prisma-jwt",
+  "main": "app.js",
+  "scripts": {
+    "build": "babel app.js -d dist",
+    "dev": "nodemon --exec babel-node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/secalquin/nodejs-prisma-jwt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/secalquin/nodejs-prisma-jwt/issues"
+  },
+  "homepage": "https://github.com/secalquin/nodejs-prisma-jwt#readme",
+  "dependencies": {
+    "@prisma/client": "^3.14.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.16",
+    "response-time": "^2.3.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.10",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "prisma": "^3.13.0"
+  }
+}
